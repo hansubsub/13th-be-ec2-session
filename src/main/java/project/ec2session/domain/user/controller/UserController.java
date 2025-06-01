@@ -19,16 +19,19 @@ import project.ec2session.domain.user.service.UserService;
 public class UserController {
     private final UserService userService;
 
+    @Override
     @GetMapping("/me")
     public ResponseEntity<?> getUserInfo(@AuthenticationPrincipal CustomUserDetails userDetails) {
         return ResponseEntity.ok(userService.readById(userDetails.getUserId()));
     }
 
+    @Override
     @GetMapping
     public ResponseEntity<?> getAllUser() {
         return ResponseEntity.ok(userService.readAll());
     }
 
+    @Override
     @PutMapping
     public ResponseEntity<?> updateUserInfo(@AuthenticationPrincipal CustomUserDetails userDetails,
                                             @RequestBody @Valid UserReq.UpdateInfo request) {

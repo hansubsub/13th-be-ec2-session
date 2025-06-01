@@ -20,6 +20,7 @@ import java.util.Map;
 public class AuthController{
     private final AuthService authService;
 
+    @Override
     @PostMapping("/sign-in")
     public ResponseEntity<?> signIn(
             @RequestBody @Valid UserReq.SignInDto request
@@ -29,6 +30,7 @@ public class AuthController{
         return ResponseEntity.ok().body(response);
     }
 
+    @Override
     @PostMapping("/sign-up")
     public ResponseEntity<?> signUp(@RequestBody @Valid UserReq.SignUpDto request) {
         Long userId = authService.signUp(request);
