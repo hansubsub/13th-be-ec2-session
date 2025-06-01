@@ -42,6 +42,7 @@ public class UserReq {
 
     @Schema(name = "UpdateInfo", description = "로그인 요청 DTO")
     public record UpdateInfo(
+            @Schema(description = "새로운 닉네임", example = "new 테스터")
             @NotBlank(message = "닉네임은 필수 입력 값입니다.")
             String nickname
     ) { }

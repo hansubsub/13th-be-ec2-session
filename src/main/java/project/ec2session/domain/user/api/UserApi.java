@@ -84,4 +84,3 @@ public interface UserApi {
     ResponseEntity<?> updateUserInfo(@AuthenticationPrincipal CustomUserDetails userDetails,
                                      @RequestBody @Valid UserReq.UpdateInfo request);
 }
-
